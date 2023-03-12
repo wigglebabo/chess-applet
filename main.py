@@ -26,7 +26,7 @@ board = [
          ["em","em","em","em","em","em","em","em"],
          ["em","em","em","em","em","em","em","em"],
          ["em","em","em","em","em","em","em","em"],
-         ["wp","wp","wp","wp",":D","wp","wp","wp"],
+         ["wp","wp","wp","wp","wp","wp","wp","wp"],
          ["wT","wP","wL","wD","wK","wL","wP","wT"]
          ]
 def printboard():
@@ -81,15 +81,29 @@ print("veel succes!")
 
 
 while not mat:
+
     if (turn % 2) == 0:
         print("Wit aan zet")
+        aanZet = True
     else:
         print("Zwart aan zet")
+        aanZet = False
+    #vraag de zet
     stuk = input("welk stuk wil je zetten? ")
     posStuk = input("waar staat het stuk? ")
     desStuk = input("naar waar gaat het stuk? " )
     #confirmation voor je zet
     confirm = input("is dit je zet: " + stuk + " op " + posStuk + " naar " + desStuk + " ? y/n ")
     if confirm == "y":
-        print(board[int(str(waarOpHetBoard(posStuk))[1])] [int(str(waarOpHetBoard(posStuk))[4])])
+        #make the moves
+        board[int(str(waarOpHetBoard(posStuk))[1])] [int(str(waarOpHetBoard(posStuk))[4])] = "em"
+
+        if aanZet:
+            board[int(str(waarOpHetBoard(desStuk))[1])][int(str(waarOpHetBoard(desStuk))[4])] = "w" + stuk
+        if not aanZet:
+            board[int(str(waarOpHetBoard(desStuk))[1])][int(str(waarOpHetBoard(desStuk))[4])] = "b" + stuk
+        #print the board
+        printboard()
+
+        #next turn
         turn = turn + 1
