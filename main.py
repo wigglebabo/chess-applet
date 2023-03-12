@@ -1,8 +1,6 @@
 
 #from tkinter import *
 
-
-
 #def click():
     #print("hello")
 
@@ -17,6 +15,8 @@
 
 import time
 
+
+ongeldigheid = 0
 turn = 0
 mat = False
 board = [
@@ -81,6 +81,11 @@ print("veel succes!")
 
 
 while not mat:
+    if ongeldigheid > 2:
+        print("even herhalen:")
+        print("de notatie gaat als volgt: eerst het stuk: p (kleine) voor pion, T voor toren, P(grote) voor paard, L voor loper, D voor dame, K voor koning.")
+        print("de coordinaten gaan zoals een normaal schaakspel.")
+
 
     if (turn % 2) == 0:
         print("Wit aan zet")
@@ -92,9 +97,31 @@ while not mat:
     stuk = input("welk stuk wil je zetten? ")
     posStuk = input("waar staat het stuk? ")
     desStuk = input("naar waar gaat het stuk? " )
+    #ongeldigheid resetten
+    ongeldigheid = 0
     #confirmation voor je zet
-    confirm = input("is dit je zet: " + stuk + " op " + posStuk + " naar " + desStuk + " ? y/n ")
-    if confirm == "y":
+    confirm = input("is dit je zet: " + stuk + " op " + posStuk + " naar " + desStuk + " ? y/n ").lower()
+    #verify the move
+    if not confirm == "y" or confirm == "n":
+        confirm = "n"
+        ongeldigheid = ongeldigheid + 1
+        print("Die zet is ongeldig op " + str(ongeldigheid) + " manier(en)!")
+
+    if len(stuk) > 1:
+        confirm = "n"
+        ongeldigheid = ongeldigheid +1
+        print("Die zet is ongeldig op " + str(ongeldigheid) + " manier(en)!")
+    if not len(posStuk) == 2:
+        confirm = "n"
+        ongeldigheid = ongeldigheid + 1
+        print("Die zet is ongeldig op " + str(ongeldigheid) + " manier(en)!")
+    if not len(desStuk) == 2:
+        confirm = "n"
+        ongeldigheid = ongeldigheid + 1
+        print("Die zet is ongeldig op " + str(ongeldigheid) + " manier(en)!")
+
+
+if confirm == "y":
         #make the moves
         board[int(str(waarOpHetBoard(posStuk))[1])] [int(str(waarOpHetBoard(posStuk))[4])] = "em"
 
