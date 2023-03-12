@@ -92,3 +92,4 @@ while not mat:
     confirm = input("is dit je zet: " + stuk + " op " + posStuk + " naar " + desStuk + " ? y/n ")
     if confirm == "y":
         print(board[int(str(waarOpHetBoard(posStuk))[1])] [int(str(waarOpHetBoard(posStuk))[4])])
+        turn = turn + 1
