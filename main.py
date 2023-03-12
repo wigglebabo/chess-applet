@@ -17,7 +17,7 @@
 
 import time
 
-
+turn = 0
 mat = False
 board = [
          ["bT","bP","bL","bD","bK","bL","bP","bT"],
@@ -37,21 +37,21 @@ def printboard():
 #bepaal de positie op de array met schaakcoordinaten
 def waarOpHetBoard(zet):
     #posY bepalen
-    if zet[0] == "a":
+    if zet[0].lower() == "a":
         posX = 0
-    elif zet[0] == "b":
+    elif zet[0].lower() == "b":
         posX = 1
-    elif zet[0] == "c":
+    elif zet[0].lower() == "c":
         posX = 2
-    elif zet[0] == "d":
+    elif zet[0].lower() == "d":
         posX = 3
-    elif zet[0] == "e":
+    elif zet[0].lower() == "e":
         posX = 4
-    elif zet[0] == "f":
+    elif zet[0].lower() == "f":
         posX = 5
-    elif zet[0] == "g":
+    elif zet[0].lower() == "g":
         posX = 6
-    elif zet[0] == "h":
+    elif zet[0].lower() == "h":
         posX = 7
     #posX bepalen
     if zet[1] == "1" :
@@ -81,6 +81,10 @@ print("veel succes!")
 
 
 while not mat:
+    if (turn % 2) == 0:
+        print("Wit aan zet")
+    else:
+        print("Zwart aan zet")
     stuk = input("welk stuk wil je zetten? ")
     posStuk = input("waar staat het stuk? ")
     desStuk = input("naar waar gaat het stuk? " )
