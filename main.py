@@ -15,7 +15,7 @@
 
 import time
 
-
+valid = False
 turn = 0
 mat = False
 board = [
@@ -72,7 +72,7 @@ def waarOpHetBoard(zet):
         posY = 1
     elif zet[1] == "8":
         posY = 0
-    #return value
+
     return(posY,posX)
 
 
