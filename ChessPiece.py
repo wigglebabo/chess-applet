@@ -15,7 +15,7 @@ class ChessPiece(ABC):
 
 class Pawn(ChessPiece):
     def is_legal_move(self, position: Position, board: ChessBoard):
-
+        
 
 
 
