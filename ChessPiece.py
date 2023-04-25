@@ -14,10 +14,12 @@ class ChessPiece(ABC):
 
 
 class Pawn(ChessPiece):
-    def is_legal_move(self, position: Position, board: ChessBoard):
+    def is_legal_move(self, position: Position, board: ChessBoard, destination: Position):
+        if (board.get_piece(destination) != None):
+            legal_move = False
         
 
 
 
 
-        return
+        return legal_move
