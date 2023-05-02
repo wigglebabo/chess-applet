@@ -11,7 +11,7 @@ class ChessPieceTest(unittest.TestCase):
         pawn = Pawn()
 
         board.set_piece(pawn, position_from_notation("E4"))
-        legal_move = pawn.is_legal_move(position_from_notation("E5"), board)
+        legal_move = pawn.is_legal_move(position_from_notation("E4"), board, position_from_notation("E5") )
 
         self.assertEqual(True, legal_move)
 
@@ -20,7 +20,7 @@ class ChessPieceTest(unittest.TestCase):
         pawn = Pawn()
 
         board.set_piece(pawn, position_from_notation("E4"))
-        legal_move = pawn.is_legal_move(position_from_notation("E3"), board)
+        legal_move = pawn.is_legal_move(position_from_notation("E4"), board, position_from_notation("E3"))
 
         self.assertEqual(False, legal_move)
 

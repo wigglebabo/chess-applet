@@ -3,8 +3,6 @@ from Position import Position
 
 
 class ChessBoard:
-
-
     def __init__(self):
         self.pieces = [
             [None, None, None, None, None, None, None, None],
