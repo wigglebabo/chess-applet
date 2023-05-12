@@ -24,8 +24,27 @@ class ChessPieceTest(unittest.TestCase):
 
         self.assertEqual(False, legal_move)
 
+    def test_white_pawn_sideways(self):
+        board = ChessBoard()
+        pawn = Pawn()
+        board.set_piece(pawn, position_from_notation("E4"))
+        legal_move = pawn.is_legal_move(position_from_notation("E4"), board, position_from_notation("D4"))
 
+        self.assertEqual(False, legal_move)
 
+    def test_white_pawn_2_forward(self):
+        board = ChessBoard()
+        pawn1 = Pawn()
+        pawn2 = Pawn()
+
+        board.set_piece(pawn1, position_from_notation("E2"))
+        board.set_piece(pawn2, position_from_notation("D4"))
+
+        legal_1 = pawn1.is_legal_move(position_from_notation("E2"), board, position_from_notation("E4"))
+        legal_2 = pawn2.is_legal_move(position_from_notation("D4"), board, position_from_notation("D6"))
+
+        self.assertEqual(True, legal_1)
+        self.assertEqual(False, legal_2)
 
 
 class ChessBoardTest(unittest.TestCase):
