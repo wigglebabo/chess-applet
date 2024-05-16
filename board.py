@@ -1,7 +1,4 @@
-from piece import *
-
-
-
+from pieces import Pawn, Rook, Bishop, Queen, Knight, King
 
 class Board:
     def __init__(self, board: list)-> None:
@@ -49,3 +46,20 @@ class Board:
 
         for r in printboard:
             print(r)
+
+    def get_piece(self, posx: int, posy: int)->None:
+        piece = self.board[posy][posx]
+        return piece
+
+    def replace_piece(self, xpos: int, ypos: int, piece: object or str)-> None:
+        self.board[ypos][xpos] = piece
+
+
+    def movepiece(self, xstart: int, ystart: int, xdest: int, ydest: int)-> None:
+        if not self.get_piece(xstart, ystart) == "em":
+            piece = self.get_piece(xstart, ystart)
+            self.replace_piece(xdest, ydest, piece)
+            self.replace_piece(xstart, ystart, "em")
+        else:
+            pass
+
